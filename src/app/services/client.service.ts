@@ -4,8 +4,10 @@ import {
   AngularFirestoreCollection,
   AngularFirestoreDocument
 } from 'angularfire2/firestore';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
+import 'rxjs/add/operator/map';
 import { Client } from '../models/Client';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -19,5 +21,16 @@ export class ClientService {
     this.clientsCollection = this.afs.collection('clients', ref =>
       ref.orderBy('lastName', 'asc')
     );
+  }
+  getClients(): Observable<Client[]> {
+    // get clients with id
+    this.clients = this.clientsCollection.snapshotChanges().map(changes => {
+      return changes.map(action => {
+        const data = action.payload.doc.data() as Client;
+        data.id = action.payload.doc.id;
+        return data;
+      });
+    });
+    return this.clients;
   }
 }
