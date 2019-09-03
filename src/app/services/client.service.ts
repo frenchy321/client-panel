@@ -5,8 +5,7 @@ import {
   AngularFirestoreDocument
 } from 'angularfire2/firestore';
 import { Observable } from 'rxjs/Observable';
-import { from } from 'rxjs';
-
+import { Client } from '../models/Client';
 @Injectable({
   providedIn: 'root'
 })
