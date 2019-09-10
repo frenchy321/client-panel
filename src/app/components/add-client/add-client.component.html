@@ -12,6 +12,34 @@
     Add Client
   </div>
   <div class="card-body">
-    <form #clientForm="ngform" (ngsubmit)="onSubmit(clientForm)"></form>
+    <form #clientForm="ngForm" (ngsubmit)="onSubmit(clientForm)">
+      <div class="form-group">
+        <label for="firstName">First Name</label>
+        <input
+          type="text"
+          class="form-control"
+          name="firstName"
+          #clientFirstName="ngModel"
+          [ngClass]="{
+            'is-invalid': clientFirstName.errors && clientFirstName.touched
+          }"
+          [(ngModel)]="firstName"
+          minlength="2"
+          required
+        />
+        <div
+          [hidden]="!clientFirstName.errors?.required"
+          class="invalid-feedback"
+        >
+          First name required
+        </div>
+        <div
+          [hidden]="!clientFirstName.errors?.minlength"
+          class="invalid-feedback"
+        >
+          Must be 2 characters
+        </div>
+      </div>
+    </form>
   </div>
 </div>
