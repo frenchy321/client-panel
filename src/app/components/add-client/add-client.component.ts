@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Client } from '../../models/Client';
+import { FlashMessagesService } from 'angular2-flash-messages';
 
 @Component({
   selector: 'app-add-client',
@@ -19,7 +20,7 @@ export class AddClientComponent implements OnInit {
 
   @ViewChild('clientForm', { static: false }) form: any;
 
-  constructor() {}
+  constructor(private FlashMessage: FlashMessagesService) {}
 
   ngOnInit() {}
 
