@@ -23,5 +23,16 @@ export class AddClientComponent implements OnInit {
 
   ngOnInit() {}
 
-  onSubmit({ value, valid }: { value: Client; valid: boolean }) {}
+  onSubmit({ value, valid }: { value: Client; valid: boolean }) {
+    if (this.disableBalanceOnAdd) {
+      value.balance = 0;
+    }
+    if (!valid) {
+      // show error
+    } else {
+      // add new client
+      // show message
+      // redirect to dash
+    }
+  }
 }
