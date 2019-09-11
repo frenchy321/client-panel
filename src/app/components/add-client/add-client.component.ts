@@ -1,5 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Client } from '../../models/Client';
+import { ClientService } from '../../services/client.service';
+import { Router } from '@angular/router';
 import { FlashMessagesService } from 'angular2-flash-messages';
 
 @Component({
@@ -20,7 +22,11 @@ export class AddClientComponent implements OnInit {
 
   @ViewChild('clientForm', { static: false }) form: any;
 
-  constructor(private FlashMessage: FlashMessagesService) {}
+  constructor(
+    private clientService: ClientService,
+    private FlashMessage: FlashMessagesService,
+    private router: Router
+  ) {}
 
   ngOnInit() {}
 
@@ -36,12 +42,14 @@ export class AddClientComponent implements OnInit {
       });
     } else {
       // add new client
+      this.clientService.newClient(value);
       // show message
       this.FlashMessage.show('New client added', {
         cssClass: 'alert-success',
         timeout: 4000
-        // redirect to dash
       });
+      // redirect to dash
+      this.router.navigate(['/']);
     }
   }
 }
