@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Client } from '../../models/Client';
 
 @Component({
@@ -17,7 +17,11 @@ export class AddClientComponent implements OnInit {
 
   disableBalanceOnAdd: boolean = true;
 
+  @ViewChild('clientForm', { static: false }) form: any;
+
   constructor() {}
 
   ngOnInit() {}
+
+  onSubmit({ value, valid }: { value: Client; valid: boolean }) {}
 }
