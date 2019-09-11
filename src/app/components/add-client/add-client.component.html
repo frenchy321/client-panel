@@ -12,7 +12,7 @@
     Add Client
   </div>
   <div class="card-body">
-    <form #clientForm="ngForm" (ngSubmit)="onSubmit = clientForm">
+    <form #clientForm="ngForm" (ngSubmit)="onSubmit(clientForm)">
       <div class="form-group">
         <label for="firstName">First Name</label>
         <input
@@ -99,14 +99,14 @@
           [ngClass]="{
             'is-invalid': clientPhone.errors && clientPhone.touched
           }"
-          [(ngModel)]="clientPhone"
+          [(ngModel)]="client.phone"
           minlength="10"
           required
         />
         <div [hidden]="!clientPhone.errors?.required" class="invalid-feedback">
           Phone is required
         </div>
-        <div [hidden]="!clientPhone.errors?.pattern" class="invalid-feedback">
+        <div [hidden]="!clientPhone.errors?.minlength" class="invalid-feedback">
           Must be at least 10 characters
         </div>
       </div>
