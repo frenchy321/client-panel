@@ -17,8 +17,8 @@ export class ClientDetailsComponent implements OnInit {
 
   constructor(
     private clientService: ClientService,
-    private route: ActivatedRoute,
     private router: Router,
+    private route: ActivatedRoute,
     private flashMessage: FlashMessagesService
   ) {}
 
@@ -27,6 +27,11 @@ export class ClientDetailsComponent implements OnInit {
     this.id = this.route.snapshot.params['id'];
     // get client
     this.clientService.getClient(this.id).subscribe(client => {
+      if (client != null) {
+        if (client.balance > 0) {
+          this.hasBalance = true;
+        }
+      }
       this.client = client;
       console.log(this.client);
     });
