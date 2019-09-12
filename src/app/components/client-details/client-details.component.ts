@@ -19,7 +19,7 @@ export class ClientDetailsComponent implements OnInit {
     private clientService: ClientService,
     private route: ActivatedRoute,
     private router: Router,
-    private flashMessengerService: FlashMessagesService
+    private flashMessage: FlashMessagesService
   ) {}
 
   ngOnInit() {
@@ -28,6 +28,7 @@ export class ClientDetailsComponent implements OnInit {
     // get client
     this.clientService.getClient(this.id).subscribe(client => {
       this.client = client;
+      console.log(this.client);
     });
   }
 }

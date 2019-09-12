@@ -1,8 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { Client } from '../../models/Client';
+import { FlashMessagesService } from 'angular2-flash-messages';
 import { ClientService } from '../../services/client.service';
 import { Router } from '@angular/router';
-import { FlashMessagesService } from 'angular2-flash-messages';
+
+import { Client } from '../../models/Client';
 
 @Component({
   selector: 'app-add-client',
@@ -48,6 +49,7 @@ export class AddClientComponent implements OnInit {
         cssClass: 'alert-success',
         timeout: 4000
       });
+
       // redirect to dash
       this.router.navigate(['/']);
     }
