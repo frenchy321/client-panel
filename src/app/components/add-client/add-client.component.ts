@@ -24,8 +24,8 @@ export class AddClientComponent implements OnInit {
   @ViewChild('clientForm', { static: false }) form: any;
 
   constructor(
-    private clientService: ClientService,
     private FlashMessage: FlashMessagesService,
+    private clientService: ClientService,
     private router: Router
   ) {}
 
