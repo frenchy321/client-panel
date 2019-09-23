@@ -50,4 +50,5 @@ export class ClientService {
 
     return this.client;
   }
+  onDeleteClick() {}
 }

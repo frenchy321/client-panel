@@ -36,5 +36,7 @@ export class ClientDetailsComponent implements OnInit {
     });
   }
 
-  onDeleteClick() {}
+  updateBalance() {
+    this.clientService.updateClient(this.client);
+  }
 }

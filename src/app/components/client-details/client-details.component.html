@@ -34,7 +34,7 @@
           ></small>
         </h3>
         <div class="clearfix">
-          <form *ngIf="showBalanceUpdateInput">
+          <form *ngIf="showBalanceUpdateInput" (submit)="updateBalance()">
             <div class="input-group">
               <input
                 type="text"
