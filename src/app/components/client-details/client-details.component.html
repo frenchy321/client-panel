@@ -24,12 +24,30 @@
         <h3 class="float-right">
           Balance
           <span
-            [class.text.danger]="hasBalance"
-            [class.text.success]="!hasBalance"
+            [class.text-danger]="hasBalance"
+            [class.text-success]="!hasBalance"
           >
             {{ client.balance | currency: 'GBP':'symbol' }}
           </span>
+          <small (click)="showBalanceUpdateInput = !showBalanceUpdateInput"
+            ><i class="fa fa-pencil"></i
+          ></small>
         </h3>
+        <div class="clearfix">
+          <form *ngIf="showBalanceUpdateInput">
+            <div class="input-group">
+              <input
+                type="text"
+                name="balance"
+                class="form-control"
+                [(ngModel)]="client.balance"
+              />
+              <span class="input-group-btn">
+                <button type="submit" class="btn btn-primary">Update</button>
+              </span>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
     <hr />
