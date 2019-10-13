@@ -9,7 +9,14 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  constructor() {}
+  email: string;
+  password: string;
+
+  constructor(
+    private authService: AuthService,
+    private flashMessage: FlashMessagesService,
+    private router: Router
+  ) {}
 
   ngOnInit() {}
 }
