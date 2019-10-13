@@ -43,4 +43,15 @@ export class ClientDetailsComponent implements OnInit {
       timeout: 4000
     });
   }
+
+  onDeleteClick() {
+    if (confirm('Are you sure?')) {
+      this.clientService.deleteClient(this.client);
+      this.flashMessages.show('Client removed', {
+        cssClass: 'alert-success',
+        timeout: 4000
+      });
+      this.router.navigate(['/']);
+    }
+  }
 }
