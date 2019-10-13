@@ -51,8 +51,6 @@ export class ClientService {
     return this.client;
   }
 
-  onDeleteClick() {}
-
   updateClient(client: Client) {
     this.clientDoc = this.afs.doc(`clients/${client.id}`);
     this.clientDoc.update(client);
@@ -60,6 +58,6 @@ export class ClientService {
 
   deleteClient(client: Client) {
     this.clientDoc = this.afs.doc(`clients/${client.id}`);
-    this.clientDoc.update(client);
+    this.clientDoc.delete();
   }
 }
