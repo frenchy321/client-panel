@@ -14,4 +14,8 @@ export class AuthService {
         .then(userData => resolve(userData), err => reject(err));
     });
   }
+
+  getAuth() {
+    return this.afAuth.authState.map(auth => auth);
+  }
 }
