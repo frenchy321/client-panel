@@ -19,4 +19,14 @@ export class LoginComponent implements OnInit {
   ) {}
 
   ngOnInit() {}
+
+  onSubmit() {
+    this.authService.login(this.email, this.password).then(res => {
+      this.flashMessage.show('You are now logged in', {
+        cssClass: 'alert-success',
+        timeout: 4000
+      });
+      this.router.navigate(['/']);
+    });
+  }
 }
