@@ -18,4 +18,8 @@ export class AuthService {
   getAuth() {
     return this.afAuth.authState.map(auth => auth);
   }
+
+  logOut() {
+    this.afAuth.auth.signOut();
+  }
 }
