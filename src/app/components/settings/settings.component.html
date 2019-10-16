@@ -21,6 +21,28 @@
             (change)="settings.allowRegistration = !settings.allowRegistration"
           />
         </div>
+        <div class="form-group">
+          <label>Disable Balance On Add</label>
+          <input
+            type="checkbox"
+            name="disableBalanceOnAdd"
+            [checked]="settings.disableBalanceOnAdd"
+            (change)="
+              settings.disableBalanceOnAdd = !settings.disableBalanceOnAdd
+            "
+          />
+        </div>
+        <div class="form-group">
+          <label>Disable Balance On Edit</label>
+          <input
+            type="checkbox"
+            name="disableBalanceOnEdit"
+            [checked]="settings.disableBalanceOnEdit"
+            (change)="
+              settings.disableBalanceOnEdit = !settings.disableBalanceOnEdit
+            "
+          />
+        </div>
       </form>
     </div>
   </div>
