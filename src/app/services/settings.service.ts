@@ -6,7 +6,7 @@ import { Settings } from '../models/settings';
 })
 export class SettingsService {
   settings: Settings = {
-    allowRegistration: false,
+    allowRegistration: true,
     disableBalanceOnAdd: true,
     disableBalanceOnEdit: true
   };
