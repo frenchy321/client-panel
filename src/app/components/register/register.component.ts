@@ -9,6 +9,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
+  email: string;
+  password: string;
+
   constructor(
     private authService: AuthService,
     private flashMessage: FlashMessagesService,
@@ -17,5 +20,21 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit() {}
 
-  onSubmit() {}
+  onSubmit() {
+    this.authService
+      .register(this.email, this.password)
+      .then(res => {
+        this.flashMessage.show('You are now registered and logged in', {
+          cssClass: 'alert-success',
+          timeout: 4000
+        });
+        this.router.navigate(['/']);
+      })
+      .catch(err => {
+        this.flashMessage.show(err.message, {
+          cssClass: 'alert-danger',
+          timeout: 4000
+        });
+      });
+  }
 }
